@@ -1,7 +1,10 @@
+const http = require('http');
 const express = require('express');
-const app = express();
 
-// Serve static files (CSS, JavaScript, images, etc.) from the "public" directory
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+// Serve static files from the root directory
 app.use(express.static(__dirname));
 
 // Serve the HTML file on the root route
