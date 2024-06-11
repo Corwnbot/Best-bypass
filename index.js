@@ -2,25 +2,17 @@ const express = require('express');
 const app = express();
 
 // Serve static files (CSS, JavaScript, images, etc.) from the "public" directory
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(__dirname));
 
-// Serve HTML files from the "views" directory
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'views', 'web.html'));
+// Serve the HTML file on the root route
+app.get("/", (request, response) => {
+  response.sendFile('web.html', { root: __dirname });
 });
 
-// You can add more routes for other HTML files if needed
-// For example:
-// app.get('/about', (req, res) => {
-//   res.sendFile(path.join(__dirname, 'views', 'about.html'));
-// });
-
-// Start the server
-const PORT = process.env.PORT || 3000;
+// Start the server on the specified port
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+  console.log(`Server is listening on port ${PORT}`);
 });
-
 //Made by wmnd
 const { Client } = require('discord.js');
 const { REST } = require('@discordjs/rest');
