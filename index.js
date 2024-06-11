@@ -1,5 +1,11 @@
 const http = require('http');
 const express = require('express');
+const { Client } = require('discord.js');
+const { REST } = require('@discordjs/rest');
+const { Routes } = require('discord-api-types/v9');
+const axios = require('axios');
+const fs = require('fs');
+const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -16,13 +22,6 @@ app.get("/", (request, response) => {
 app.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`);
 });
-//Made by wmnd
-const { Client } = require('discord.js');
-const { REST } = require('@discordjs/rest');
-const { Routes } = require('discord-api-types/v9');
-const axios = require('axios');
-const fs = require('fs');
-const path = require('path');
 
 const token = process.env.t;
 const clientId = "1179783460135649392";
@@ -79,6 +78,11 @@ client.once('ready', async () => {
 client.on('interactionCreate', async interaction => {
     if (!interaction.isCommand()) return;
 
+    // Check if the interaction occurred in the designated channel (replace '1245698906231410809' with your channel's ID)
+    if (interaction.channelId !== '1245698906231410809') {
+        return await interaction.reply('Commands can only be used in the designated channel.');
+    }
+
     switch (interaction.commandName) {
         case 'bypass':
             await bypass(interaction);
@@ -94,8 +98,12 @@ client.on('interactionCreate', async interaction => {
     }
 });
 
-
 async function bypass(interaction) {
+    // Check if the interaction occurred in the designated channel (replace '1245698906231410809' with your channel's ID)
+    if (interaction.channelId !== '1245698906231410809') {
+        return await interaction.reply('This command can only be used in the designated channel.');
+    }
+
     const link = interaction.options.getString('link');
     const box = "```";
     
@@ -110,7 +118,7 @@ async function bypass(interaction) {
                     { name: 'Message:', value: '```ml\nRun /supported To Get The List Of Supported Bypasses.\n```' },
                 ],
                 footer: {
-                    text: `Requested By ${interaction.user.username} | Made by ${madeby} | Powered By Bypassi`
+                    text: `Requested By ${interaction.user.username} | Made by ${madeby} | Powered By KGF`
                 }
             }],
         });  
@@ -119,13 +127,13 @@ async function bypass(interaction) {
     
     await interaction.reply({
         embeds: [{
-            title: "Bypassing..",
+            title: "KGFng..",
             color: 587253,
             fields: [
                 { name: 'Status', value: '```Could Take A Few Seconds Depending On What Its Trying To Bypass```' }
             ],
             footer: {
-                text: `Requested By ${interaction.user.username} | Made by ${madeby} | Powered By Bypassi`
+                text: `Requested By ${interaction.user.username} | Made by ${madeby} | Powered By KGF`
             }
         }],
     });
@@ -152,7 +160,7 @@ async function bypass(interaction) {
                             { name: 'Time Taken:', value: `${box}${json.time}${box}` }
                         ],
                         footer: {
-                            text: `Requested By ${interaction.user.username} | Made by ${madeby} | Powered By Bypassi`
+                            text: `Requested By ${interaction.user.username} | Made by ${madeby} | Powered By KGF`
                         }
                     }],
                 });     
@@ -166,7 +174,7 @@ async function bypass(interaction) {
                             { name: 'Message:', value: '```ml\nMost Likely An Invalid PlatoBoost Link Or Un-Existing Author.\n```' },
                         ],
                         footer: {
-                            text: `Requested By ${interaction.user.username} | Made by ${madeby} | Powered By Bypassi`
+                            text: `Requested By ${interaction.user.username} | Made by ${madeby} | Powered By KGF`
                         }
                     }],
                 });                              
@@ -180,7 +188,7 @@ async function bypass(interaction) {
                             { name: 'Message:', value: '```ml\nEither Hwid Is Invalid Or Api Is Not Working.\n```' },
                         ],
                         footer: {
-                            text: `Requested By ${interaction.user.username} | Made by ${madeby} | Powered By Bypassi`
+                            text: `Requested By ${interaction.user.username} | Made by ${madeby} | Powered By KGF`
                         }
                     }],
                 });                       
@@ -196,7 +204,7 @@ async function bypass(interaction) {
                         { name: 'Message:', value: '```ml\nEither Api Is Offline Or Not Responding.\n```' },
                     ],
                     footer: {
-                        text: `Requested By ${interaction.user.username} | Made by ${madeby} | Powered By Bypassi`
+                        text: `Requested By ${interaction.user.username} | Made by ${madeby} | Powered By KGF`
                     }
                 }],
             });         
@@ -222,7 +230,7 @@ async function bypass(interaction) {
                             { name: 'Time Taken:', value: `${box}${json.time}${box}` }
                         ],
                         footer: {
-                            text: `Requested By ${interaction.user.username} | Made by ${madeby} | Powered By Bypassi`
+                            text: `Requested By ${interaction.user.username} | Made by ${madeby} | Powered By KGF`
                         }
                     }],
                 });            
@@ -236,7 +244,7 @@ async function bypass(interaction) {
                             { name: 'Message:', value: '```ml\nMost Likely An Invalid HWID/Fluxus Link Or Failed To Bypass. Please Try Again With A Valid Link.\n```' },
                         ],
                         footer: {
-                            text: `Requested By ${interaction.user.username} | Made by ${madeby} | Powered By Bypassi`
+                            text: `Requested By ${interaction.user.username} | Made by ${madeby} | Powered By KGF`
                         }
                     }],
                 });                       
@@ -252,7 +260,7 @@ async function bypass(interaction) {
                         { name: 'Message:', value: '```ml\nEither Api Is Offline Or Not Responding.\n```' },
                     ],
                     footer: {
-                        text: `Requested By ${interaction.user.username} | Made by ${madeby} | Powered By Bypassi`
+                        text: `Requested By ${interaction.user.username} | Made by ${madeby} | Powered By KGF`
                     }
                 }],
             });         
@@ -275,7 +283,7 @@ async function bypass(interaction) {
                             { name: 'Time Taken:', value: `${box}${json.time}${box}` }
                         ],
                         footer: {
-                            text: `Requested By ${interaction.user.username} | Made by ${madeby} | Powered By Bypassi`
+                            text: `Requested By ${interaction.user.username} | Made by ${madeby} | Powered By KGF`
                         }
                     }],
                 });           
@@ -289,7 +297,7 @@ async function bypass(interaction) {
                             { name: 'Message:', value: '```ml\nInvalid Linkvertise Link. Try Again With An Active/Working Linkvertise Link.\n```' },
                         ],
                         footer: {
-                            text: `Requested By ${interaction.user.username} | Made by ${madeby} | Powered By Bypassi`
+                            text: `Requested By ${interaction.user.username} | Made by ${madeby} | Powered By KGF`
                         }
                     }],
                 });  
@@ -303,7 +311,7 @@ async function bypass(interaction) {
                             { name: 'Message:', value: '```ml\nMost Likely An Api Error. Try Again Later!\n```' },
                         ],
                         footer: {
-                            text: `Requested By ${interaction.user.username} | Made by ${madeby} | Powered By Bypassi`
+                            text: `Requested By ${interaction.user.username} | Made by ${madeby} | Powered By KGF`
                         }
                     }],
                 });                       
@@ -312,14 +320,14 @@ async function bypass(interaction) {
             console.error(error);
             await interaction.editReply({
                 embeds: [{
-                    title: "Linkvertise Error",                   
+                    title:"Linkvertise Error",                   
                     color: 16713222,
                     thumbnail: { url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDXWPxWgfrFsPT9M9NzG2PLeMg3nWE5LkAIw&s' },
                     fields: [
                         { name: 'Message:', value: '```ml\nEither Api Is Offline Or Not Responding.\n```' },
                     ],
                     footer: {
-                        text: `Requested By ${interaction.user.username} | Made by ${madeby} | Powered By Bypassi`
+                        text: `Requested By ${interaction.user.username} | Made by ${madeby} | Powered By KGF`
                     }
                 }],
             });         
@@ -329,6 +337,11 @@ async function bypass(interaction) {
 }
 
 async function supported(interaction) {
+    // Check if the interaction occurred in the designated channel (replace '1245698906231410809' with your channel's ID)
+    if (interaction.channelId !== '1245698906231410809') {
+        return await interaction.reply('This command can only be used in the designated channel.');
+    }
+
     await interaction.reply({
         embeds: [{
             title: "Supported Bypasses",
@@ -337,7 +350,7 @@ async function supported(interaction) {
                 { name: 'Supported Links:', value: '```md\n1. [PlatoBoost](https://gateway.platoboost.com/a/)\n2. [Fluxus](https://flux.li/android/external/start.php?HWID=)\n3. [Linkvertise](https://linkvertise.com)\n```' }
             ],
             footer: {
-                text: `Requested By ${interaction.user.username} | Made by ${madeby} | Powered By Bypassi`
+                text: `Requested By ${interaction.user.username} | Made by ${madeby} | Powered By KGF`
             },
             timestamp: new Date()
         }],
@@ -345,6 +358,11 @@ async function supported(interaction) {
 }
 
 async function apistatus(interaction) {
+    // Check if the interaction occurred in the designated channel (replace '1245698906231410809' with your channel's ID)
+    if (interaction.channelId !== '1245698906231410809') {
+        return await interaction.reply('This command can only be used in the designated channel.');
+    }
+
     const statusUrl = 'http://45.90.13.151:6041/status';
 
     try {
@@ -361,7 +379,7 @@ async function apistatus(interaction) {
                         { name: 'Uptime:', value: `\`${data.uptime}\``, inline: true }
                     ],
                     footer: {
-                        text: `Requested By ${interaction.user.username} | Made by ${madeby} | Powered By Bypassi`
+                        text: `Requested By ${interaction.user.username} | Made by ${madeby} | Powered By KGF`
                     },
                     timestamp: new Date()
                 }],
@@ -375,7 +393,7 @@ async function apistatus(interaction) {
                         { name: 'Status:', value: 'The API is currently offline.' }
                     ],
                     footer: {
-                        text: `Requested By ${interaction.user.username} | Made by ${madeby} | Powered By Bypassi`
+                        text: `Requested By ${interaction.user.username} | Made by ${madeby} | Powered By KGF`
                     },
                     timestamp: new Date()
                 }],
@@ -391,7 +409,7 @@ async function apistatus(interaction) {
                     { name: 'Message:', value: 'Failed to retrieve the API status.' },
                 ],
                 footer: {
-                    text: `Requested By ${interaction.user.username} | Made by ${madeby} | Powered By Bypassi`
+                    text: `Requested By ${interaction.user.username} | Made by ${madeby} | Powered By KGF`
                 },
                 timestamp: new Date()
             }],
