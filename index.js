@@ -127,10 +127,10 @@ async function bypass(interaction) {
     
     await interaction.reply({
         embeds: [{
-            title: "KGFng..",
+            title: "KGF - Bypassing..",
             color: 587253,
             fields: [
-                { name: 'Status', value: '```Could Take A Few Seconds Depending On What Its Trying To Bypass```' }
+                { name: 'Status', value: '```Could Take A Few Seconds Depending On What Its Trying To Bypass\nکەمێک چاوەڕێکە ئێستا کلیلەکەت بۆ دەهێنم```' }
             ],
             footer: {
                 text: `Requested By ${interaction.user.username} | Made by ${madeby} | Powered By KGF`
@@ -225,12 +225,11 @@ async function bypass(interaction) {
                         color: 458532,
                         thumbnail: { url: 'https://media.discordapp.net/attachments/1205456615873052712/1239947639165026366/2558-fluxus.png?ex=664769ba&is=6646183a&hm=2cee59399595d0f73a9fdc0faab234430cdb183a24890d5c8d550db3b4747de1&=&format=webp&quality=lossless' },
                         fields: [
-                            { name: 'Key:', value: `${box}${json.key}${box}` },
-                            { name: 'HWID:', value: `${box}yaml\n${HWID}\n${box}` },
-                            { name: 'Time Taken:', value: `${box}${json.time}${box}` }
+                            { name: 'Key/کلیل:', value: `${box}${json.key}${box}` },
+                            { name: 'Time Taken/کاتی بەسەربردن:', value: `${box}${json.time}${box}` }
                         ],
                         footer: {
-                            text: `Requested By ${interaction.user.username} | Made by ${madeby} | Powered By KGF`
+                            text: `Requested By ${interaction.user.username} | Made by AKAR | Powered By KGF`
                         }
                     }],
                 });            
@@ -241,7 +240,7 @@ async function bypass(interaction) {
                         color: 16713222,
                         thumbnail: { url: 'https://media.discordapp.net/attachments/1205456615873052712/1239947639165026366/2558-fluxus.png?ex=664769ba&is=6646183a&hm=2cee59399595d0f73a9fdc0faab234430cdb183a24890d5c8d550db3b4747de1&=&format=webp&quality=lossless' },
                         fields: [
-                            { name: 'Message:', value: '```ml\nMost Likely An Invalid HWID/Fluxus Link Or Failed To Bypass. Please Try Again With A Valid Link.\n```' },
+                            { name: 'Message:', value: '```ml\nMost Likely An Invalid HWID/Fluxus Link Or Failed To Bypass. Please Try Again With A Valid Link.\nلینکەکە یان بەسەر چووە یان هەڵەیە تکایە دڵنیابەوە ئینجا هەوڵ بدەرەوە```' },
                         ],
                         footer: {
                             text: `Requested By ${interaction.user.username} | Made by ${madeby} | Powered By KGF`
